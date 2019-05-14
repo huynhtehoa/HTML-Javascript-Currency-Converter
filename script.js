@@ -19,13 +19,14 @@ function formattedMoney(amount) {
   } 
 
 function formattedMessage(ownedAmount, ownedCurrency, exchangeRate, convertedCurrency) {
-    return  `${ownedAmount} ${ownedCurrency} is equal to ${formattedMoney(ownedAmount * exchangeRate)} ${convertedCurrency}`;
+    return `${ownedAmount} ${ownedCurrency} is equal to ${formattedMoney(ownedAmount * exchangeRate)} ${convertedCurrency}`;
   }
 
 function writeToBody(message) {
     document.getElementById("result").innerHTML = message;
   }
 
+  
 function convertMoney() {
   const valueInsideElementIdResult = document.getElementById("amount").value;
 
@@ -95,5 +96,17 @@ function convertMoney() {
       const message12 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, krwExchangeRateEur, convertedCurrencySelect);
       return writeToBody(message12);
     }
+  }
+
+
+  switch (convertedCurrencySelect) {
+    case "VND":
+     document.getElementById("thank-you-message").innerHTML = "Cảm ơn";
+    case "USD":
+     document.getElementById("thank-you-message").innerHTML = "Thank you";
+    case "EUR":
+     document.getElementById("thank-you-message").innerHTML = "Danke";
+    case "KRW":
+     document.getElementById("thank-you-message").innerHTML = "some thank you in korean";
   }
 }
