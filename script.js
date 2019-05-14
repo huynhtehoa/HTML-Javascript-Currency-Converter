@@ -96,5 +96,4 @@ function convertMoney() {
       return writeToBody(message12);
     }
   }
-
 }
