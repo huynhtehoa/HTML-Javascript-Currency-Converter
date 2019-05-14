@@ -1,14 +1,14 @@
 const vndExchangeRateUsd = 23216;
-const vndExchangRateKrw = 19;
+const vndExchangeRateKrw = 19;
 const vndExchangeRateEur = 26137;
 
 const usdExchangeRateVnd = 1 / vndExchangeRateUsd;
 const usdExchangeRateKrw = 0.000844;
 const usdExchangeRateEur = 1.1238;
 
-const krwExchangeRateVnd = 1 / vndExchangRateKrw;
+const krwExchangeRateVnd = 1 / vndExchangeRateKrw;
 const krwExchangeRateEur = 1331;
-const krwExchangeRateUsd = 1/ usdExchangeRateKrw;
+const krwExchangeRateUsd = 1 / usdExchangeRateKrw;
 
 const eurExchangeRateVnd = 1 / vndExchangeRateEur;
 const eurExchangeRateUsd = 1 / usdExchangeRateEur;
