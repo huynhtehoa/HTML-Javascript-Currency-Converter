@@ -16,17 +16,20 @@ const eurExchangeRateKrw = 1 / krwExchangeRateEur;
 
 function formattedMoney(amount) {
     return amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-  } 
+} 
 
 function formattedMessage(ownedAmount, ownedCurrency, exchangeRate, convertedCurrency) {
     return `${ownedAmount} ${ownedCurrency} is equal to ${formattedMoney(ownedAmount * exchangeRate)} ${convertedCurrency}`;
-  }
+}
 
 function writeToBody(message) {
     document.getElementById("result").innerHTML = message;
-  }
+}
 
-  
+function writeTyMessage(message) {
+  document.getElementById("thank-you-message").innerHTML = message
+}
+
 function convertMoney() {
   const valueInsideElementIdResult = document.getElementById("amount").value;
 
@@ -48,65 +51,60 @@ function convertMoney() {
     }
   }
 
+  let message
   if (ownedCurrencySelect == "USD") {
     switch (convertedCurrencySelect) {
       case "VND":
-      const message0 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, vndExchangeRateUsd, convertedCurrencySelect);
-      return writeToBody(message0);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, vndExchangeRateUsd, convertedCurrencySelect);
       case "KRW":
-      const message1 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, krwExchangeRateUsd, convertedCurrencySelect);
-      return writeToBody(message1);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, krwExchangeRateUsd, convertedCurrencySelect);
       case "EUR":
-      const message2 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, eurExchangeRateUsd, convertedCurrencySelect);
-      return writeToBody(message2);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, eurExchangeRateUsd, convertedCurrencySelect);
     }
   } else if (ownedCurrencySelect == "VND") {
     switch (convertedCurrencySelect) {
       case "USD":
-      const message3 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, usdExchangeRateVnd, convertedCurrencySelect);
-      return writeToBody(message3);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, usdExchangeRateVnd, convertedCurrencySelect);
       case "KRW":
-      const message4 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, krwExchangeRateVnd, convertedCurrencySelect);
-      return writeToBody(message4);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, krwExchangeRateVnd, convertedCurrencySelect);
       case "EUR":
-      const message5 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, eurExchangeRateVnd, convertedCurrencySelect);
-      return writeToBody(message5);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, eurExchangeRateVnd, convertedCurrencySelect);
     }
   } else if (ownedCurrencySelect == "KRW") {
     switch (convertedCurrencySelect) {
       case "USD":
-      const message6 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, usdExchangeRateKrw, convertedCurrencySelect);
-      return writeToBody(message6);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, usdExchangeRateKrw, convertedCurrencySelect);
       case "VND":
-      const message7 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, vndExchangeRateKrw, convertedCurrencySelect);
-      return writeToBody(message7);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, vndExchangeRateKrw, convertedCurrencySelect);
       case "EUR":
-      const message8 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, eurExchangeRateKrw, convertedCurrencySelect);
-      return writeToBody(message8);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, eurExchangeRateKrw, convertedCurrencySelect);
     }
   } else if (ownedCurrencySelect == "EUR") {
     switch (convertedCurrencySelect) {
       case "USD":
-      const message9 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, usdExchangeRateEur, convertedCurrencySelect);
-      return writeToBody(message9);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, usdExchangeRateEur, convertedCurrencySelect);
       case "VND":
-      const message10 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, vndExchangeRateEur, convertedCurrencySelect);
-      return writeToBody(message10);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, vndExchangeRateEur, convertedCurrencySelect);
       case "KRW":
-      const message12 = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, krwExchangeRateEur, convertedCurrencySelect);
-      return writeToBody(message12);
+        message = formattedMessage(valueInsideElementIdResult, ownedCurrencySelect, krwExchangeRateEur, convertedCurrencySelect);
     }
   }
 
-
+  writeToBody(message);
+  let tyMessage
   switch (convertedCurrencySelect) {
     case "VND":
-     document.getElementById("thank-you-message").innerHTML = "Cảm ơn";
+      tyMessage = "Cảm ơn";
+      break
     case "USD":
-     document.getElementById("thank-you-message").innerHTML = "Thank you";
+      tyMessage = "Thank you";
+      break
     case "EUR":
-     document.getElementById("thank-you-message").innerHTML = "Danke";
+      tyMessage = "Danke";
+      break
     case "KRW":
-     document.getElementById("thank-you-message").innerHTML = "some thank you in korean";
+      tyMessage = "some thank you in korean";
   }
+
+  writeTyMessage(tyMessage);
 }
