@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Currency Converter</title>
+</head>
+
+<body>
+    <h1>
+        Currency Converter
+    </h1>
+
+    <div style="padding: 20px 0;">
+        <label for="owned-currency">What currency do you have?</label>
+        <select id="owned-currency">
+            <option value="">--Please choose an option--</option>
+            <option value="USD">USD</option>
+            <option value="VND">VND</option>
+            <option value="KRW">KRW</option>
+            <option value="EUR">EUR</option>
+        </select>
+    </div>
+
+    <div style="padding: 20px 0;">
+            <label for="converted-currency">What currency do you have?</label>
+            <select id="converted-currency">
+                <option value="">--Please choose an option--</option>
+                <option value="USD">USD</option>
+                <option value="VND">VND</option>
+                <option value="KRW">KRW</option>
+                <option value="EUR">EUR</option>
+            </select>
+        </div>
+
+    <div style="padding: 20px 0;">
+        <label>How much money do you have?</label>
+        <input type="text" id="amount">
+    </div>
+
+    <div style="padding: 20px 0;">
+        <button onclick="convertMoney()">
+            Convert Currency
+        </button>
+        <span id="result"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
