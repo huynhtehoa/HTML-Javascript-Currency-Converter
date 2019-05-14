@@ -6,47 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Currency Converter</title>
+    <link rel="icon" href="https://images-na.ssl-images-amazon.com/images/I/510WmeXkLXL._SY355_.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>
-        Currency Converter
-    </h1>
-
-    <div style="padding: 20px 0;">
-        <label for="owned-currency">What currency do you have?</label>
-        <select id="owned-currency">
-            <option value="">--Please choose an option--</option>
-            <option value="USD">USD</option>
-            <option value="VND">VND</option>
-            <option value="KRW">KRW</option>
-            <option value="EUR">EUR</option>
-        </select>
-    </div>
-
-    <div style="padding: 20px 0;">
-            <label for="converted-currency">What currency do you have?</label>
-            <select id="converted-currency">
-                <option value="">--Please choose an option--</option>
-                <option value="USD">USD</option>
-                <option value="VND">VND</option>
-                <option value="KRW">KRW</option>
-                <option value="EUR">EUR</option>
-            </select>
+    <header style="background: rgba(0,0,0,0.8)">
+        <div class="container p-2">
+            <div class="row">
+                <div class="col-md-1 col-1 align-self-center">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/510WmeXkLXL._SY355_.png" width="60px"
+                        height="60px">
+                </div>
+                <div class="col-md-11 col-11 mx-auto" style="text-align: center;">
+                    <h1 class="display-4 text-light font-weight-bold">
+                        💰 Currency Converter 💰
+                    </h1>
+                </div>
+            </div>
         </div>
+    </header>
+    <section>
+        <div class="container p-2">
+            <div class="d-flex" style="padding: 20px 0; justify-content: center;">
+                <label class="pr-3" for="owned-currency">What currency do you have?</label>
+                <select id="owned-currency">
+                    <option value="">--Please choose an option--</option>
+                    <option value="USD">😸 USD</option>
+                    <option value="VND">😹 VND</option>
+                    <option value="KRW">😺 KRW</option>
+                    <option value="EUR">😻 EUR</option>
+                </select>
+            </div>
 
-    <div style="padding: 20px 0;">
-        <label>How much money do you have?</label>
-        <input type="text" id="amount">
-    </div>
+            <div class="d-flex" style="padding: 20px 0; justify-content: center;">
+                <label class="pr-3" for="converted-currency">What currency do you want?</label>
+                <select id="converted-currency">
+                    <option value="">--Please choose an option--</option>
+                    <option value="USD">😀 USD</option>
+                    <option value="VND">😁 VND</option>
+                    <option value="KRW">😂 KRW</option>
+                    <option value="EUR">😃 EUR</option>
+                </select>
+            </div>
 
-    <div style="padding: 20px 0;">
-        <button onclick="convertMoney()">
-            Convert Currency
-        </button>
-        <span id="result"></span>
-    </div>
+            <div class="d-flex" style="padding: 20px 0; justify-content: center;">
+                <label class="pr-3">How much money do you have?</label>
+                <input class="pl-2" type="text" id="amount" placeholder="Amount">
+            </div>
 
+            <div class="d-flex" style="padding: 20px 0; justify-content: center;">
+                <button class="btn btn-warning p-2 mx-2 text-white" onclick="convertMoney()">
+                    Convert Currency
+                </button>
+                <span id="result"></span>
+            </div>
+            <div class="d-flex" style="padding: 20px 0; justify-content: center;">
+                <span id="thank-you-message"></span>
+            </div>
+        </div>
+    </section>
     <script src="script.js"></script>
 </body>
 
